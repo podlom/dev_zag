@@ -32,6 +32,7 @@ auth.json
 # exclude logs
 worker.log
 storage/logs/*.*
+storage/logs/
 
 # IDEA config files
 .idea/
