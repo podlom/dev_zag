@@ -35,3 +35,6 @@ storage/logs/*.*
 
 # IDEA config files
 .idea/
+
+# exclude large json files
+public/*.json
