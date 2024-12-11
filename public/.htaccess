@@ -1,0 +1,738 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+    #
+    # RewriteRule ^(.*)novostro(.*)\.(?!(jpg|jpeg|png))(.*)$ https://www.zagorodna.com [R=301,L]
+    #
+    # added by @ts 2024-07-12 12:12
+    # Redirect 301 /ru /
+    # to check
+    RewriteRule ^ru/?$ / [R=301,L]
+    #
+    # 2024-08-02 @ts
+    RewriteRule ^ru/regiony-ukrainy/www.zagorodna.com/(.+)$ /ru/regiony-ukrainy/$1 [R=301,L]
+    RewriteRule ^ru/regiony-ukrainy/rajonnye-centry-(.+)/(.+)$ /ru/regiony-ukrainy/$2 [R=301,L]
+    RewriteRule ^uk/regioni-ukrajni/(.+)/\1\.html$ /uk/regioni-ukrajni/$1 [R=301,L]
+    RewriteRule ^uk/regioni-ukrajni/(.+)/\1$ /uk/regioni-ukrajni/$1 [R=301,L]
+    #
+    # Redirect 301 /ru/stroitelstvo/.html /ru/stroitelstvo
+    #
+    # RewriteRule ^/ru/(.*)/\.html$ /ru/$1 [R=301,L]
+    #
+    # Redirect 301 /uk/statti/.html /uk/statti
+    # Redirect 301 /uk/konkursi/konkursi-z-zhitlovoi-ta-zamiskoi-neruhomosti2016/.html /uk/konkursi/konkursi-z-zhitlovoi-ta-zamiskoi-neruhomosti2016
+    # Redirect 301 /uk/analitika/.html /uk/analitika
+    # Redirect 301 /uk/novini/.html /uk/novini
+    #
+    # RewriteRule ^/uk/(.*)/\.html$ /uk/$1 [R=301,L]
+    #
+    #
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    #
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+    #
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+    #
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+    #
+    RewriteCond %{THE_REQUEST} ^.*/index\.php
+    RewriteRule ^(.*)index.php$ /$1 [R=301,L]
+    #
+    Redirect 301 /novosti /ru/novosti
+    Redirect 301 /o-kompanii /ru/o-kompanii
+    Redirect 301 /ru/politika-konfidencialnosti /ru/o-kompanii/politika-konfidencialnosti.html
+    Redirect 301 /pro-kompaniyu /uk/pro-kompaniyu
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/lvivskiy/sold /uk/kotedzhni-mistechka-ukrajni/area/lvivskiy
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/lvivskiy/sold/taunxaus /uk/kotedzhni-mistechka-ukrajni/area/lvivskiy
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/kvadreks /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/kvadreks
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/done /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/done
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/kottedz /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/kottedz
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/taunxaus /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/taunxaus
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/building /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/building
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/sold /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/sold
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/building/dupleks /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/building/dupleks
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/done/dupleks /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/done/dupleks
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/building/kvadreks /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/building/kvadreks
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/done/kvadreks /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/done/kvadreks
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/done/taunxaus /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/done/taunxaus
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/done/kottedz /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/done/kottedz
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/building/taunxaus /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/building/taunxaus
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/sold/taunxaus /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/sold/taunxaus
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/rovno/dupleks /ru/kottedzhnye-gorodki-poselki-ukrainy/area/rovno/dupleks
+    Redirect 301 /ru/vystavki/video-s-vystavok-o-nedvizhimosti/video-s-vystavki-v-drim-taune.html /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/video-s-vystavok-o-nedvizhimosti/video-s-vystavki-v-drim-taune.html
+    Redirect 301 /kottedzhnye-gorodki-poselki-ukrainy /ru/kottedzhnye-gorodki-poselki-ukrainy
+    Redirect 301 /novini /ru/novosti
+    Redirect 301 /ru/analitika/.html /ru/analitika
+    Redirect 301 /ru/analitika/novye-proekty-na-rynke-kottedzhnoj-nedvizhimosti-kieva-i-oblasti.html /ru/analitika/novye-proekty-na-rynke-kottedzhnykh-gorodkov-kievskogo-regiona.html
+    Redirect 301 /ru/contest2013 /
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/area/harkovskij/done/zemelnyi-ucastok /ru/kottedzhnye-gorodki-poselki-ukrainy/area/harkovskij
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/area/harkovskij/project/zemelnyi-ucastok /ru/kottedzhnye-gorodki-poselki-ukrainy/area/harkovskij
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/area/jaremche /ru/kottedzhnye-gorodki-poselki-ukrainy/area/nadvornjanskij
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/area/kamenko-bugskij /ru/kottedzhnye-gorodki-poselki-ukrainy/area/kamenka-bugskiy
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/area/storozhineckij/frozen/kottedz /ru/kottedzhnye-gorodki-poselki-ukrainy/area/storozhineckij
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/area/storozhineckij/project/kottedz /ru/kottedzhnye-gorodki-poselki-ukrainy/area/storozhineckij
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/area/zhovkovskij /ru/kottedzhnye-gorodki-poselki-ukrainy/area/zholkovskiy
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/ivankov-110620/done/taunxaus /ru/kottedzhnye-gorodki-poselki-ukrainy/city/ivankov-110620
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/kamennaja-261817/frozen/kottedz /ru/kottedzhnye-gorodki-poselki-ukrainy/city/kamennaja-261817
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/kamennaja-261817/project/kottedz /ru/kottedzhnye-gorodki-poselki-ukrainy/city/kamennaja-261817
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/mikulichi-110827/building/kottedz /ru/kottedzhnye-gorodki-poselki-ukrainy/city/mikulichi-110827
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/mikulichi-110827/frozen/kottedz /ru/kottedzhnye-gorodki-poselki-ukrainy/city/mikulichi-110827
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/mikulichi-110827/kottedz /ru/kottedzhnye-gorodki-poselki-ukrainy/city/mikulichi-110827
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/city/paseki-zubreckie/building/kottedz /ru/kottedzhnye-gorodki-poselki-ukrainy/city/paseki-zubreckie
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/dajberg_kg /ru/kottedzhnye-gorodki-poselki-ukrainy/zhm-dayberg
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/dream_town_dupleksy /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-dream-town
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/filter-region-14 /ru/kottedzhnye-gorodki-poselki-ukrainy/region/odesskaja
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/filter-region-8 /ru/kottedzhnye-gorodki-poselki-ukrainy/region/ivano-frankovskaja
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/fontan_dupleksy /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-fontan
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/gora_kg /ru/kottedzhnye-gorodki-poselki-ukrainy/city/gora
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-balkanskiy /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-zagorodnyy
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-zoloche /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-zoloche-1
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/novaja_berezovka_kg /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-home-resort
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/region/vinnickaja/frozen /ru/kottedzhnye-gorodki-poselki-ukrainy/region/vinnickaja
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/region/vinnickaja/project /ru/kottedzhnye-gorodki-poselki-ukrainy/region/vinnickaja
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/riviera_zoloche_kg /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-zoloche-1
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/taunhaus-sib-home /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-sib-home
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/taunhausy-berega /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-berega
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/taunhausy-kopyly-club /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-kopyly-club
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/taunhausy-r8-townhouse /ru/kottedzhnye-gorodki-poselki-ukrainy/taunhausy-p8-townhouse
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/ul-1-ya-liniya-31 /ru/kottedzhnye-gorodki-poselki-ukrainy/taunhausy-pervaya-liniya-31
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/vishnevyj_hutorok_kg /ru/kottedzhnye-gorodki-poselki-ukrainy/kg-vishnevyy-hutorok
+    Redirect 301 /ru/login /
+    Redirect 301 /ru/meropriyatiya/konferencii /ru/konferencii
+    Redirect 301 /ru/meropriyatiya/konkursy /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-2013-godu/konkurs /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-2013-godu/konkurs-zhile2013 /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2010-2011-godu /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2011-2012 /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/biznesvstrecha-professionalov-rynka-zhiloy-i-zagorodnoy-nedvizhimosti /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/chetvertyy-vseukrainskiy-nezavisimyy-konkurs-zhile2012 /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/chetvertyy-vseukrainskiy-nezavisimyy-konkurs-zhile2012/uchastniki-chetvertogo-vseukrainskogo-konkursa-zhile2012.html /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/nacionalnaia-premiia-narodnoe-priznanie-v-oblasti-stroitelstva /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/shestoy-vseukrainskiy-nezavisimyy-konkurs-kottedzhnyy-gorodok2012- /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/shestoy-vseukrainskiy-nezavisimyy-konkurs-kottedzhnyy-gorodok2012-/uchastniki-shestogo-vseukrainskogo-nezavisimogo-konkursa-kottedzhnyy-gorodok2012.html /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2014-godu/forum-gorodskaia-i-zagorodnaia-nedvizhimost-ukrainy/forum-gorodskaia-i-zagorodnaia-nedvizhimost2014.html /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2014-godu/forum-gorodskaia-i-zagorodnaia-nedvizhimost-ukrainy/zaiavka-na-uchastie-v-forume /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2014-godu/shestoy-vseukrainskiy-nezavisimyy-konkurs-zhile2014 /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/konkursy-po-nedvizhimosti-v-2014-godu/vosmoy-vseukrainskiy-nezavisimyy-konkurs-kottedzhnyy-gorodok2014 /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/premiia-narodnoe-priznanie-v-oblasti-stroitelstva2015/nominacii-premii-kottedzhnyy-gorodok2015.html /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/premiia-narodnoe-priznanie-v-oblasti-stroitelstva2015/nominacii-premii-zhile2015.html /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/premiia-narodnoe-priznanie-v-oblasti-stroitelstva2015/uchastniki-premii-v-segmente-kottedzhnyh-gorodkov.html /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/konkursy/premiia-narodnoe-priznanie-v-oblasti-stroitelstva2015/uchastniki-premii-v-segmente-novostroek.html /ru/konkursy
+    Redirect 301 /ru/meropriyatiya/vystavki /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya/vystavki/vystavki-realekspo-2012 /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya/vystavki/vystavki-realekspo-2012/shourum-novostroek-ukrainy /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya/vystavki/vystavki-realekspo-2012/shourum-zagorodnoy-nedvizhimosti-ukrainy /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya/vystavki/vystavki-realekspo2013/forum-gorodskaia-i-zagorodnaia-nedvizhimost2013/forum-2013.html /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya/vystavki/vystavki-realekspo2013/fotoreportazh.html /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya/vystavki/vystavki-realekspo2013/registraciia-na-uchastie-v-forume-gorodskoy-i-zagorodnoy-nedvizhimosti /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya/vystavki/vystavki-realekspo2013/shourum-kottedzhnyh-gorodkov-kieva-i-kievskoy-oblasti /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya/vystavki/vystavki-realekspo2013/shourum-novostroek-kieva-i-kievskoy-oblasti /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya/vystavki/vystavki-realjekspo-2009-goda /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya/vystavki/vystavki-realjekspo-2009-goda/antikrizisnyj-biznesforum-programma.html /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya-konkursy-konkursy-po-nedvizhimosti-v-2010-2011-godu/uchastniki-pyatogo-vseukrainskogo-nezavisimogo-konkursa-kottedzhnyj-gorodok--2010.html /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya-konkursy-konkursy-po-nedvizhimosti-v-2010-2011-godu/uchastniki-tretego-vseukrainskogo-nezavisimogo-konkursa-zhile--2010.html /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/meropriyatiya-konkursy-konkursy-po-nedvizhimosti-v-2010-2011-godu/zhyuri-konkursov-kottedzhnyj-gorodok2010-i-zhile2010.html /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    #
+    Redirect 301 /ru/novosti/" /ru/novosti
+    Redirect 301 /ru/novosti/"/files/45/sezd.jpg" /ru/novosti
+    Redirect 301 /ru/novosti/"http://pagead2.googlesyndication.com/pagead/show_ads.js" /ru/novosti
+    Redirect 301 /ru/novosti/tov-solteks-kapital-oskarzhit-rishennia-amku-schodo-zmovi-pri-kupivli-trc-respublika.html /uk/novini/tov-solteks-kapital-oskarzhit-rishennia-amku-schodo-zmovi-pri-kupivli-trc-respublika.html
+    #
+    Redirect 301 /ru/novostrojki-prigoroda/city/jablunica /ru/novostrojki-prigoroda/city/jablunica-91653
+    Redirect 301 /ru/novostrojki-prigoroda/city/poljanica-1560250769 /ru/novostrojki-prigoroda/city/paljanica
+    Redirect 301 /ru/novostrojki-prigoroda/filter-region-1 /ru/novostrojki-prigoroda/city/paljanica
+    Redirect 301 /ru/novostroyki-kryma /
+    Redirect 301 /ru/proekty-domov /
+    Redirect 301 /ru/realekspo/o-kompanii /ru/o-kompanii
+    Redirect 301 /ru/realekspo/o-kompanii/kompaniya-realjekspo.html /ru/o-kompanii
+    Redirect 301 /ru/stati/o-riskah-zastroyschika-pri-priobretenii-zemli.html /ru/stati/kakie-riski-zhdut-zastroyschika-pri-priobretenii-zemli.html
+    Redirect 301 /ru/stati/top10-voprosov-pokupateley-kvartir-v-novostroyke.html /ru/stati
+    Redirect 301 /ru/video-videoroliki-ob-obektakh-zagorodnoj-nedvizhimosti /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/video-s-vystavok-o-nedvizhimosti
+    Redirect 301 /ru/vse-dlya-doma?region=0&specialization=25 /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/video-s-vystavok-o-nedvizhimosti
+    Redirect 301 /ru/vystavki/video-s-vystavok-o-nedvizhimosti/video-s-vystavki-v-drim-taune.html /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/video-s-vystavok-o-nedvizhimosti/video-s-vystavki-v-drim-taune.html
+    Redirect 301 /uk/contest2013 /uk
+    Redirect 301 /uk/contest2013/complex-2013 /uk
+    Redirect 301 /uk/contest2013/cottages-2013 /uk
+    Redirect 301 /uk/doshka-ogoloshen?show=ukraine&rt=68&o=0&pf=&pt=&r=11&a=0 /uk
+    Redirect 301 /uk/doshka-ogoloshen?show=ukraine&rt=71&o=13&pf=&pt=&r=0&a=0&c=0 /uk
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/beregivskij /uk/kotedzhni-mistechka-ukrajni/region/zakarpatska
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/harkivskij/done/zemelnyi-ucastok /uk/kotedzhni-mistechka-ukrajni/area/harkivskij
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/harkivskij/project/zemelnyi-ucastok /uk/kotedzhni-mistechka-ukrajni/area/harkivskij
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/jaremche /uk/kotedzhni-mistechka-ukrajni/area/nadvirnjanskij
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/kamjanko-buzkij /uk/kotedzhni-mistechka-ukrajni/area/kamyanka-buzkiy
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/lvivskiy/building/kottedz /uk/kotedzhni-mistechka-ukrajni/area/lvivskiy
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/lvivskiy/sold /uk/kotedzhni-mistechka-ukrajni/area/lvivskiy
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/lvivskiy/sold/taunxaus /uk/kotedzhni-mistechka-ukrajni/area/lvivskiy
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/storozhineckij/frozen/taunxaus /uk/kotedzhni-mistechka-ukrajni/area/storozhineckij
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/area/storozhineckij/project/taunxaus /uk/kotedzhni-mistechka-ukrajni/area/storozhineckij
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/city/ivankiv-110620/done/taunxaus /uk/kotedzhni-mistechka-ukrajni/city/ivankiv-110620
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/city/kamjana/frozen/taunxaus /uk/kotedzhni-mistechka-ukrajni/city/kamjana
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/city/kamjana/project/taunxaus /uk/kotedzhni-mistechka-ukrajni/city/kamjana
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/dajberg_km /uk/kotedzhni-mistechka-ukrajni/zhm-dayberg-1
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/drim_taun_dupleksi /uk/kotedzhni-mistechka-ukrajni/kg-dream-town-1
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/fontan_dupleksi /uk/kotedzhni-mistechka-ukrajni/km-fontan
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/kg-balkanskiy-1 /uk/kotedzhni-mistechka-ukrajni/km-zamiskiy
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/km-zoloche /uk/kotedzhni-mistechka-ukrajni/km-zoloche-1
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/kurortne_km/projects/zemelnyy-uchastok-80 /uk/kotedzhni-mistechka-ukrajni/kurortne_km
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/map/region/chernivecka/frozen/taunxaus /uk/kotedzhni-mistechka-ukrajni/map/region/chernivecka
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/map/region/chernivecka/project/taunxaus /uk/kotedzhni-mistechka-ukrajni/map/region/chernivecka
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/nova_berezivka_km /uk/kotedzhni-mistechka-ukrajni/km-home-resort
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/region/chernivecka/frozen/taunxaus /uk/kotedzhni-mistechka-ukrajni/region/chernivecka
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/region/chernivecka/project/taunxaus /uk/kotedzhni-mistechka-ukrajni/region/chernivecka
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/region/vinnicka/frozen /uk/kotedzhni-mistechka-ukrajni/region/vinnicka
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/region/vinnicka/project /uk/kotedzhni-mistechka-ukrajni/region/vinnicka
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/taunhausi-berega /uk/kotedzhni-mistechka-ukrajni/km-berega
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/taunhausi-kopyly-club /uk/kotedzhni-mistechka-ukrajni/km-kopyly-club
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/taunhaus-sib-home-1 /uk/kotedzhni-mistechka-ukrajni/km-sib-home
+    Redirect 301 /uk/kotedzhni-mistechka-ukrajni/vul-1-a-liniya-31 /uk/kotedzhni-mistechka-ukrajni/taunhausi-persha-liniya-31
+    Redirect 301 /uk/login /uk
+    Redirect 301 /uk/novini/vidnovlennya-poshkodzhenih-budivel-viynoyu-u-kiyevi-koshtuvatime-80-mln-yevro.htm /uk/novini/vidnovlennya-poshkodzhenih-budivel-viynoyu-u-kiyevi-koshtuvatime-80-mln-yevro.html
+    Redirect 301 /uk/novobudovi-krimu /uk
+    #
+    Redirect 301 /uk/novobudovi-peredmistya/city/jablunicja /uk/novobudovi-peredmistya/city/jablunicja-91653
+    Redirect 301 /uk/novobudovi-peredmistya/city/poljanicja-1560250769 /uk/novobudovi-peredmistya/city/paljanicja
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405740 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405744 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405748 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405752 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405756 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405760 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405764 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405768 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405772 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405776 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405780 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405784 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405788 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405791 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405795 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405799 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405802 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405807 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405811 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405814 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405818 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405822 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405826 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405830 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/1-kimnatna1620405834 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/2-kimnatna1620405838 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/novobudovi-peredmistya/zhk-hvilya-1/projects/2-kimnatna1620405843 /uk/novobudovi-peredmistya/zhk-hvilya-1
+    Redirect 301 /uk/proekti-budinkiv /uk
+    #
+    Redirect 301 /uk/statti/-.html /uk/statti
+    Redirect 301 /uk/zakhodi/konkursi/konkursi-2013-rokah/konkurs /uk/konkursi
+    Redirect 301 /uk/zakhodi/konkursi/konkursi-2013-rokah/konkurs-zhitlo2013 /uk/konkursi
+    Redirect 301 /uk/zakhodi/konkursi/konkursi-po-neruhomosti-v-2011-2012/bizneszustrich-profesionaliv-rinku-zhitlovoi-i-zamiskoi-neruhomosti /uk/konkursi
+    Redirect 301 /uk/zakhodi/konkursi/konkursi-po-neruhomosti-v-2011-2012/chetvertiy-vseukrainskiy-nezalezhniy-konkurs-zhitlo2012/uchasniki-chetvertogo-vseukrainskogo-konkursu-zhitlo2012.html /uk/konkursi
+    Redirect 301 /uk/zakhodi/konkursi/konkursi-po-neruhomosti-v-2011-2012/shostiy-vseukrainskiy-nezalezhniy-konkurs-kotedzhne-mistechko2012/uchasniki-shostogo-vseukrainskogo-nezalezhnogo-konkursu-kotedzhne-mistechko2012.html /uk/konkursi
+    Redirect 301 /uk/zakhodi/vistavki/vistavki-realekspo-2013/forum-miska-ta-zamiska-neruhomist2013/forum.html /uk/konkursi
+    Redirect 301 /uk/zakhodi/vistavki/vistavki-realekspo-2013/reestraciia-na-uchast-u-forumi-miskoi-ta-zamiskoi-neruhomosti /uk/konkursi
+    Redirect 301 /uk/zakhodi-konkursi-konkursi-po-nerukhomosti-v-2010-2011-roci /uk/konkursi
+    Redirect 301 /uk/zakhodi-konkursi-konkursi-po-nerukhomosti-v-2010-2011-roci/uchasniki-piatogo-vseukrainskogo-nezalezhnogo-konkursu-kotedzhne-mistechko-2010.html /uk/konkursi
+    Redirect 301 /uk/zakhodi-konkursi-konkursi-po-nerukhomosti-v-2010-2011-roci/uchasniki-tretogo-vseukrainskogo-nezalezhnogo-konkursu-zhitlo--2010.html /uk/konkursi
+    Redirect 301 /uk/zakhodi-konkursi-konkursi-po-nerukhomosti-v-2010-2011-roci/zhuri-konkursiv-kotedzhne-mistechko2010-ta-zhitlo2010.html /uk/konkursi
+    Redirect 301 /uk/zakordonna-nerukhomist /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/avstrija /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/bolgarija /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/chehija /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/francija /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/grecija /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/horvatija /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/ispanija /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/italija /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/latvija /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/nimechchina /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/oae /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/polscha /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/respublika_kipr /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/turechchina /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/turecka_respublika_pivnichnogo_kipru /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/country/ugorschina /uk
+    Redirect 301 /uk/zakordonna-nerukhomist/prodazh-budinku-v-repceszentgyorgy-poruch-z-kurortom-biuk-zahidna-ugorschina/prodazh-budinku-poruch-z-termalnomu-kurortom-biuk.html /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=117&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=171&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=172&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=199&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=219&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=227&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=237&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=32&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=68&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=76&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uk/zakordonna-nerukhomist?ctr=87&cs=&o=0&pf=&pt=&rt=0&n=&of=&ot=&lf=&lt= /uk
+    Redirect 301 /uploads/product_images/b06a2146df0ee2481c2ba2a4a39c2cc7.jpg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354851_fpwwwcta.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354853_1mab7znh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354854_bqgrwjkz.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354854_szldtmkg.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354854_zhoxjyrh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354860_enwyt7sm.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354862_2yvwdddw.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354864_bjatz6he.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354864_h1sns2da.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354864_lebktz0k.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354874_y7fxzxju.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354875_g6a2ymth.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354876_cxxshpev.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354876_hrxywpz5.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354876_r56w6gbo.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354883_n3rwnygl.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354885_bcet0agf.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354885_mfupguwh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354885_uysmi4q6.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354890_76u2menc.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354892_ktcpxhr6.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354893_pg8tszvt.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354894_p5eq8rge.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354894_rakntaii.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354903_3wpw7ear.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354904_7qgz6wnv.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354904_cv9nkxls.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354904_ipujpof9.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354904_qyoyffhi.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354910_pvi8jnrj.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354911_h8keohoy.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354911_odmzignx.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354911_tqzkmuzh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354912_j23o4gih.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354916_zsqbh8qr.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354917_zkgxwobx.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354918_9srsw4vb.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354918_lhhhi8ep.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354918_rfcw67ja.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354929_tdd7yted.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354930_n8je2rzg.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354931_fsztcjxb.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354931_mr4pkbqd.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354931_vu33czsm.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354932_5s4twmj4.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354943_oqlula9n.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354944_6dmkha5a.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354944_khiwyxsi.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354944_y5ukb3d0.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354945_ee0bncol.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354955_onxt5v2z.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354957_irm7nq4a.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354957_qtwf7a9l.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354957_uj2g55xd.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354962_pw7qgtng.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354964_dwpkpotg.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354966_uzowkcld.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354968_b4vkalla.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354968_ikd3amnl.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354968_xdorugeg.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354974_h3lch1oj.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354975_y4nktkre.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598354976_nwrd6osc.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358871_8nffsae9.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358872_ljj7cjse.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358873_6ud00jrc.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358874_yzytq3xh.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358882_sol2lrm9.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358882_ut3a4vae.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358883_kcq6mibf.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358884_mymcm2j0.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358885_u2roq6ex.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358897_nhq1bnyb.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358897_xg9p895w.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358898_vtaqjliq.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598358899_hplbakam.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360152_itfhul1w.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360153_rfgpdbvs.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360154_grdmk4ff.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360162_gfxm2suw.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360163_tbthh21s.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360164_gzkg0ia5.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360761_rvecr4ks.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360762_usulxag3.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360764_vierxd92.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360764_w6qiyhw0.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360765_haemzycn.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360769_qafctnue.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360770_f1lxyza5.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360771_sga9q5cu.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360771_vpbfdgdl.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360779_g2bonshf.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360780_2uiebc9u.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360781_66jqijnv.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360781_u6x06boh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360781_z2h3kvgh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360782_2qwgpg7w.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360787_uvkoxmlm.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360788_wtgognem.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360789_ulcv4axt.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360790_tswzltpi.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360790_ufyozmnz.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598360790_uja3cxsa.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362039_t0btbgt9.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362041_7wfbcdis.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362042_in4piync.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362042_sfjzofdf.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362048_xvhzhvsq.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362049_mxzpdg2p.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362050_c3yuvqbj.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362050_fojugsft.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362103_cqcjez7w.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362105_b0xpztjt.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362106_8rerkrmo.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362106_vcsinsjr.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362106_xualnb9g.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362392_taiulies.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362393_pjikaucs.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362394_3wbbzpwg.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362395_bzebbyyx.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362395_huzymyp9.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362396_nh0tjd4i.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362400_mfqvfwtc.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362401_dcwavvie.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362402_gfd1eckn.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362402_uahzrscw.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362403_efz4do84.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362403_v7t0wwts.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362410_lgld8jkr.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362411_uwkl5diq.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362412_viziv9zx.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362413_bheuhybh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362413_nfcqdu7d.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362413_rma3z0xa.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362643_9dtmlsnh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362643_q7te0b4z.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362644_rmz6dybk.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362644_x3lpegnx.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362901_ucetx0at.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362902_dgvqsz2q.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362912_23u0ay9c.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362913_jfg6ozs1.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362924_qq1ljojr.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598362925_krhlhzbu.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598363791_fviqa9b2.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598363792_eyaapl2h.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598363793_rmyomkwt.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598363794_dphdxjoj.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598363794_snaxf8wn.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364271_dnv7h8wr.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364272_umqxt5ls.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364273_sloydsdg.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364278_5fekp1qj.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364279_kuiividv.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364280_gatm27um.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364352_uugajul1.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364353_xd21mrdb.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364354_qwxkhv3s.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364354_vcin2wgu.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364705_90vfjexg.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364706_e5yltp0q.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364706_jzrssaw8.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364915_qbqquw6k.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364916_yzatuw6e.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364921_wp6vkbkm.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364922_egczshzl.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364928_coyud8px.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364929_1robqb8z.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364935_ke8nfdhv.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364936_tjgnb3vb.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364945_pjzwm20s.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364946_gsirrqcn.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364947_wwf5en4z.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364956_yypwcmmq.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364957_iwo1fv5w.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364958_j3og1imu.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364967_tygggnkm.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364968_rkftzltz.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598364969_ysrxh1dh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598366592_hvqrxonn.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598366593_mn8wnanc.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598366593_xa11dgty.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598366599_hebin3p8.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598366600_gvtgfvj4.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598366600_y19wmbze.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367285_dpen5far.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367286_bfp3qfcf.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367286_nkizcdub.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367433_r6vw8b8x.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367435_gwlhswmh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367437_eldramhm.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367438_8toizcxt.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367438_vkh2tlhh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367447_nbhfmmdn.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367448_fuoqszeh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367448_iotqrdtp.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367449_qevao4k0.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367453_cbqokg8s.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367455_r0rqm2ax.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367456_l82des8x.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367457_7pwl3zpo.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367468_oxjynrjs.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367469_gnewu0qk.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367471_qwqmlsht.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367472_jqbuvoh9.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367472_wawgwqb8.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367479_gpjeyihy.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367481_9finbevl.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367482_ictrrw3x.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367482_u5vcss5d.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367489_su1vnvgh.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367490_0vzuumss.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367491_w1tshmv2.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367492_qmgnqlvd.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367499_bqwmxdtl.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367501_8toccrzp.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367501_vz2gkpry.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367506_ujf9uc3v.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367507_qpdfxd8q.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367508_slxfccz4.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367782_r8cosc10.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367783_m8bgh8ny.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367784_jfg562g2.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367794_jkcs2m2k.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367795_ztc7qlf8.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367806_q5ye55ow.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598367807_aoo0mtbp.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598368166_jxjz5mql.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598368167_uxcs755g.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444588_ogekiehg.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444589_ydfovhej.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444590_e3azndvg.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444595_dc74bxca.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444596_nu9gq1og.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444597_ztoscl9e.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444608_sawuj7o1.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444609_yxtr5bgq.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444610_oewoy1tl.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444618_mf5jh7rk.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444619_bf2ckpi7.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444620_8s2bclyu.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444630_2u4qbvkf.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444631_nuktfmit.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444633_fdmm2cjk.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444642_e3v8uxyb.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444644_bfovf8ha.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444644_htsthamd.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444652_rwm1lfyb.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444653_0qwumewr.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444654_ifyhdet3.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444663_cc4jtahn.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444664_ucp0y1pm.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444665_euarmfwl.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444676_zv3kirlc.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444677_ulido0nc.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598444678_cbdbcnjy.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447761_ardtwnnh.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447762_9vmfibtz.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447763_084oflju.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447775_dr8v9evy.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447776_khvgf1my.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447777_ufiyyt6v.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447784_qa3eli3l.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447785_qmr9eivd.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447787_b18grgcf.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447797_3y8y5iwd.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447798_juegv13n.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598447800_c5lstioe.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449287_9yb5jf0f.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449289_4skw08ym.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449289_jkux04la.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449290_ar5jhsmk.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449290_t4ov3qvx.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449298_qr6xjepa.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449299_qtxrlrpj.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449300_92tbhroj.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449300_am2vwygn.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449300_iw3fzadb.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449310_rzfnqzkk.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449310_skkpap9f.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449311_gdbdrjv6.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449311_m0ziyhnm.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449311_ngkigpyd.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449322_cw4rtuge.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449324_g7twxnly.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449325_eysnsppw.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449325_njodxukc.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449325_r61vdlik.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449333_3pswhyzt.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449334_fct8ny9r.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449334_nkpwvnpw.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449334_rhqq1q2a.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449335_dl77txcb.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449342_63uzkoep.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449343_gbb7xvhj.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449344_fiitekna.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449345_h5nphjsm.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449345_lfzoyj4f.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449349_2zlpziq0.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449350_fhurk0tb.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598449351_rmamsgui.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450170_oaw5bjms.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450171_kexjmtqm.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450172_a0wltxns.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450173_iqonpl0v.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450173_uri9k4vs.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450179_hlb9toks.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450181_h1hxx8it.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450182_lodfplpx.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450182_yja5byu7.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450188_fvwhqrql.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450189_tgibns3s.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450190_a9yqhpae.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450191_8cc6a8gj.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450191_koya4mqo.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450200_t8s4hlad.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450201_aujlw5k8.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450202_bqkann4c.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450203_mk6w3qaj.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598450203_vi4im2fk.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891479_s8fwoezu.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891479_wz0hngn6.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891480_ewftxbju.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891480_qvjm2fsw.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891481_klzdpdd4.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891490_8040n84u.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891491_dvidqcjg.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891491_lnwsgnba.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891492_d1bzmk7u.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891497_3y1omsfo.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891497_qpihxvba.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891498_frqgi4sy.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891498_kbfc07mt.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891507_bzd0ic8q.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891507_ukvmabfm.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891508_3rfnwv5q.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891508_rzmxi1mk.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891509_aatr7n9c.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891516_ytp5ewyy.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891517_e96hjo2f.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891517_noi0vju6.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891518_shnrirmx.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891525_ddhso0om.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891526_6oqqjcrp.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891526_cdkqv0bw.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891526_ybpwrl6y.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891535_9kozg5zy.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891536_tjeqq7vm.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891536_zd2nkdgv.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891545_21xia0si.jpeg /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891546_50bk41xy.png /uk
+    Redirect 301 /uploads/product_images/parsed/_1598891546_oqckqa8a.png /uk
+    # -------------------
+    # 6.09.2022 REDIRECTS
+    # -------------------
+    Redirect 301 /ru/kottedzhnye-gorodki-poselki-ukrainy/area/beregovskij /ru/kottedzhnye-gorodki-poselki-ukrainy/region/zakarpatskaja
+    Redirect 301 /uk/doshka-ogoloshen?show=ukraine&rt=68&o=0&pf=&pt=&r=11&a=0 /uk
+    Redirect 301 /uk/doshka-ogoloshen?show=ukraine&rt=71&o=13&pf=&pt=&r=0&a=0&c=0 /uk
+    Redirect 301 /?return=/ru/nedvizhimost-za-rubezhom/buy /
+    Redirect 301 /ru/vse-dlya-doma?region=0&specialization=25 /
+    Redirect 301 /ru/analitika/.html /ru/analitika
+    Redirect 301 /ru/o-kompanii/kompaniya-realjekspo.html /ru/o-kompanii
+    #
+    Redirect 301 /uk/country/avstrija /uk
+    Redirect 301 /uk/country/horvatija /uk
+    Redirect 301 /uk/country/turecka_respublika_pivnichnogo_kipru /uk
+    Redirect 301 /uk/prodazh-budinku-v-repceszentgyorgy-poruch-z-kurortom-biuk-zahidna-ugorschina/prodazh-budinku-poruch-z-termalnomu-kurortom-biuk.html /uk
+    Redirect 301 /uk/country/oae /uk
+    Redirect 301 /uk/country/polscha /uk
+    Redirect 301 /uk/country/chehija /uk
+    Redirect 301 /uk/country/francija /uk
+    Redirect 301 /uk/country/bolgarija /uk
+    Redirect 301 /uk/country/ispanija /uk
+    Redirect 301 /uk/country/italija /uk
+    Redirect 301 /uk/country/turechchina /uk
+    Redirect 301 /uk/country/ugorschina /uk
+    Redirect 301 /uk/country/latvija /uk
+    Redirect 301 /uk/country/nimechchina /uk
+    Redirect 301 /uk/country/respublika_kipr /uk
+    Redirect 301 /uk/country/grecija /uk
+    #
+    Redirect 301 /uk/konkursi/konkursi-po-neruhomosti-v-2011-2012/nacionalna-premiia-narodne-viznannia-v-galuzi-budivnictva/premiia-narodne-viznannia-v-galuzi-budivnictva.html /uk/konkursi/konkursi-po-neruhomosti-v-2011-2012
+    Redirect 301 /ru/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/chetvertyy-vseukrainskiy-nezavisimyy-konkurs-zhile2012/uchastniki-chetvertogo-vseukrainskogo-konkursa-zhile2012.html /ru/konkursy/konkursy-po-nedvizhimosti-v-2011-2012
+    Redirect 301 /uk/zakhodi/konkursi/konkursi-po-neruhomosti-v-2011-2012/shostiy-vseukrainskiy-nezalezhniy-konkurs-kotedzhne-mistechko2012 /uk/konkursi/konkursi-po-neruhomosti-v-2011-2012
+    Redirect 301 /uk/zakhodi/konkursi/konkursi-po-neruhomosti-v-2011-2012/chetvertiy-vseukrainskiy-nezalezhniy-konkurs-zhitlo2012 /uk/konkursi/konkursi-po-neruhomosti-v-2011-2012
+    Redirect 301 /uk/complex-2013 /uk
+    Redirect 301 /uk/cottages-2013 /uk
+    Redirect 301 /contest2013/complex-2013 /
+    Redirect 301 /contest2013/cottages-2013 /
+    Redirect 301 /ru/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/shestoy-vseukrainskiy-nezavisimyy-konkurs-kottedzhnyy-gorodok2012- /ru/konkursy/konkursy-po-nedvizhimosti-v-2011-2012
+    Redirect 301 /ru/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/chetvertyy-vseukrainskiy-nezavisimyy-konkurs-zhile2012 /ru/konkursy/konkursy-po-nedvizhimosti-v-2011-2012
+    Redirect 301 /ru/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/nacionalnaia-premiia-narodnoe-priznanie-v-oblasti-stroitelstva /ru/konkursy/konkursy-po-nedvizhimosti-v-2011-2012
+    Redirect 301 /ru/konkursy/konkursy-po-nedvizhimosti-v-2011-2012/shestoy-vseukrainskiy-nezavisimyy-konkurs-kottedzhnyy-gorodok2012-/uchastniki-shestogo-vseukrainskogo-nezavisimogo-konkursa-kottedzhnyy-gorodok2012.html /ru/konkursy/konkursy-po-nedvizhimosti-v-2011-2012
+    Redirect 301 /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo-2012 /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo-2012/shourum-novostroek-ukrainy /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo-2012/shourum-zagorodnoy-nedvizhimosti-ukrainy /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve
+    Redirect 301 /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo2013/forum-gorodskaia-i-zagorodnaia-nedvizhimost2013/forum-2013.html /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo2013
+    Redirect 301 /ru/konkursy/konkursy-2013-godu/konkurs /ru/konkursy/konkursy-2013-godu
+    Redirect 301 /ru/konkursy/konkursy-2013-godu/konkurs-zhile2013 /ru/konkursy/konkursy-2013-godu
+    Redirect 301 /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo2013/registraciia-na-uchastie-v-forume-gorodskoy-i-zagorodnoy-nedvizhimosti /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo2013
+    Redirect 301 /contest2013 /
+    Redirect 301 /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo2013/shourum-novostroek-kieva-i-kievskoy-oblasti /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo2013
+    Redirect 301 /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo2013/shourum-kottedzhnyh-gorodkov-kieva-i-kievskoy-oblasti /ru/vystavki-po-nedvizhimosti-i-stroitelstvu-v-kieve/vystavki-realekspo2013
+    Redirect 301 /uk/konkursi/zhuri-konkursiv-kotedzhne-mistechko2010-ta-zhitlo2010.html /uk/konkursi/konkursi-po-nerukhomosti-v-2010-2011-roci
+    Redirect 301 /uk/konkursi/uchasniki-tretogo-vseukrainskogo-nezalezhnogo-konkursu-zhitlo--2010.html /uk/konkursi/konkursi-po-nerukhomosti-v-2010-2011-roci
+    Redirect 301 /ru/konkursy/konkursy-po-nedvizhimosti-v-2014-godu/forum-gorodskaia-i-zagorodnaia-nedvizhimost-ukrainy/forum-gorodskaia-i-zagorodnaia-nedvizhimost2014.html /ru/konkursy/konkursy-po-nedvizhimosti-v-2014-godu
+    Redirect 301 /ru/konkursy/konkursy-po-nedvizhimosti-v-2014-godu/forum-gorodskaia-i-zagorodnaia-nedvizhimost-ukrainy/zaiavka-na-uchastie-v-forume /ru/konkursy/konkursy-po-nedvizhimosti-v-2014-godu
+    Redirect 301 /ru/konkursy/konkursy-po-nedvizhimosti-v-2014-godu/shestoy-vseukrainskiy-nezavisimyy-konkurs-zhile2014 /ru/konkursy/konkursy-po-nedvizhimosti-v-2014-godu
+    Redirect 301 /ru/konkursy/konkursy-po-nedvizhimosti-v-2014-godu/vosmoy-vseukrainskiy-nezavisimyy-konkurs-kottedzhnyy-gorodok2014 /ru/konkursy/konkursy-po-nedvizhimosti-v-2014-godu
+    #
+</IfModule>
+
+<IfModule mod_headers.c>
+    #кэшировать html и htm файлы на один день
+    #кэшировать css, javascript и текстовые файлы на одну неделю
+    <FilesMatch "\.(js|css|txt)$">
+        Header set Cache-Control "max-age=604800"
+    </FilesMatch>
+    #кэшировать флэш и изображения на месяц
+    <FilesMatch "\.(flv|swf|ico|gif|jpg|jpeg|png)$">
+        Header set Cache-Control "max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
+<ifModule mod_expires.c>
+ExpiresActive On
+
+#по умолчанию кеш в 5 секунд
+ExpiresDefault "access plus 1 days"
+
+# Включаем кэширование изображений и флэш на месяц
+ExpiresByType image/x-icon "access plus 1 month"
+ExpiresByType image/jpeg "access plus 4 weeks"
+ExpiresByType image/png "access plus 30 days"
+ExpiresByType image/gif "access plus 43829 minutes"
+ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
+
+# Включаем кэширование css, javascript и текстовых файлоф на одну неделю
+ExpiresByType text/css "access plus 604800 seconds"
+ExpiresByType text/javascript "access plus 604800 seconds"
+ExpiresByType application/javascript "access plus 604800 seconds"
+ExpiresByType application/x-javascript "access plus 604800 seconds"
+
+# Включаем кэширование html и htm файлов на один день
+ExpiresByType text/html "access plus 43200 seconds"
+
+# Включаем кэширование xml файлов на десять минут
+ExpiresByType application/xhtml+xml "access plus 600 seconds"
+
+# Нестандартные шрифты сайта
+AddType application/vnd.ms-fontobject .eot
+AddType application/x-font-ttf .ttf
+AddType application/x-font-opentype .otf
+AddType application/x-font-woff .woff
+AddType image/svg+xml .svg
+ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+ExpiresByType application/x-font-ttf "access plus 1 year"
+ExpiresByType application/x-font-opentype "access plus 1 year"
+ExpiresByType application/x-font-woff "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+</ifModule>

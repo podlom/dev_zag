@@ -1,0 +1,49 @@
+{
+  "name": "aimix/account",
+  "description": "A account",
+  "license": "MIT",
+  "keywords": [
+    "account"
+  ],
+  "type": "library",
+  "authors": [
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "illuminate/support": "^7.3",
+    "aimix/aimix": "dev-master"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^4.0",
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aimix\\Account\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Aimix\\Account\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "phpunit": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Aimix\\Account\\ServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}

@@ -1,0 +1,208 @@
+Laravel log rotate has started at:
+Tue 02 Jul 2024 11:50:01 PM EEST
+/var/www/zagorodnaz/dev.zagorodna.com/dev_app/storage/logs
+total 444K
+drwxr-xr-x 2 zagorodnaz apache 4.0K Jul  2 11:04 .
+drwxr-xr-x 6 zagorodnaz apache 4.0K Jun  5  2022 ..
+-rw-r--r-- 1 zagorodnaz apache   14 Jun  5  2022 .gitignore
+-rw-rw-rw- 1 zagorodnaz apache 379K Jul  2 17:55 laravel.log
+-rw-r--r-- 1 zagorodnaz apache  48K Jul  2 11:04 _laravel.log_2024-07-02_11-04.tar.bz2
+tar: Removing leading `/' from member names
+/var/www/zagorodnaz/dev.zagorodna.com/dev_app/storage/logs/laravel.log
+/var/www/zagorodnaz/dev.zagorodna.com/dev_app/storage/logs
+total 68K
+drwxr-xr-x 2 zagorodnaz apache 4.0K Jul  2 23:50 .
+drwxr-xr-x 6 zagorodnaz apache 4.0K Jun  5  2022 ..
+-rw-r--r-- 1 zagorodnaz apache   14 Jun  5  2022 .gitignore
+-rw-rw-rw- 1 zagorodnaz apache    1 Jul  2 23:50 laravel.log
+-rw-r--r-- 1 zagorodnaz apache  48K Jul  2 11:04 _laravel.log_2024-07-02_11-04.tar.bz2
+-rw-r--r-- 1 zagorodnaz apache 3.5K Jul  2 23:50 _laravel.log_2024-07-02_23-50.tar.bz2
+Laravel log rotate has finished at:
+Tue 02 Jul 2024 11:50:01 PM EEST
+Laravel log rotate has started at:
+Wed 03 Jul 2024 11:50:01 PM EEST
+/var/www/zagorodnaz/dev.zagorodna.com/dev_app/storage/logs
+total 796K
+drwxr-xr-x 2 zagorodnaz apache 4.0K Jul  3 18:48 .
+drwxr-xr-x 6 zagorodnaz apache 4.0K Jun  5  2022 ..
+-rw-r--r-- 1 zagorodnaz apache  490 Jul  3 18:47 _files_zag_release_1.txt
+-rw-r--r-- 1 zagorodnaz apache   14 Jun  5  2022 .gitignore
+-rw-rw-rw- 1 zagorodnaz apache 695K Jul  3 17:55 laravel.log
+-rw-r--r-- 1 zagorodnaz apache  48K Jul  2 11:04 _laravel.log_2024-07-02_11-04.tar.bz2
+-rw-r--r-- 1 zagorodnaz apache 3.5K Jul  2 23:50 _laravel.log_2024-07-02_23-50.tar.bz2
+-rw-r--r-- 1 zagorodnaz apache  27K Jul  3 18:48 _upd_dev_zagorodna.com__2024-07-03_18-48.tar.bz2
+tar: Removing leading `/' from member names
+/var/www/zagorodnaz/dev.zagorodna.com/dev_app/storage/logs/laravel.log
+/var/www/zagorodnaz/dev.zagorodna.com/dev_app/storage/logs
+total 108K
+drwxr-xr-x 2 zagorodnaz apache 4.0K Jul  3 23:50 .
+drwxr-xr-x 6 zagorodnaz apache 4.0K Jun  5  2022 ..
+-rw-r--r-- 1 zagorodnaz apache  490 Jul  3 18:47 _files_zag_release_1.txt
+-rw-r--r-- 1 zagorodnaz apache   14 Jun  5  2022 .gitignore
+-rw-rw-rw- 1 zagorodnaz apache    1 Jul  3 23:50 laravel.log
+-rw-r--r-- 1 zagorodnaz apache  48K Jul  2 11:04 _laravel.log_2024-07-02_11-04.tar.bz2
+-rw-r--r-- 1 zagorodnaz apache 3.5K Jul  2 23:50 _laravel.log_2024-07-02_23-50.tar.bz2
+-rw-r--r-- 1 zagorodnaz apache 4.5K Jul  3 23:50 _laravel.log_2024-07-03_23-50.tar.bz2
+-rw-r--r-- 1 zagorodnaz apache  27K Jul  3 18:48 _upd_dev_zagorodna.com__2024-07-03_18-48.tar.bz2
+Laravel log rotate has finished at:
+Wed 03 Jul 2024 11:50:01 PM EEST
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied
+/bin/sh: 1: /var/www/zagorodnaz/dev.zagorodna.com/dev_app/bin/_rotate_laravel_log.sh: Permission denied

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 45.29 40.07" style="enable-background:new 0 0 45.29 40.07;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);fill:#FFFFFF;}
+	.st1{clip-path:url(#SVGID_2_);fill:#ABABAB;}
+	.st2{clip-path:url(#SVGID_2_);fill:#DBD1C8;}
+	.st3{clip-path:url(#SVGID_2_);fill:none;stroke:#ABABAB;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st4{clip-path:url(#SVGID_2_);fill:#F7B97C;}
+	.st5{clip-path:url(#SVGID_2_);fill:none;stroke:#ABABAB;stroke-linecap:round;stroke-miterlimit:10;}
+</style>
+<g>
+	<defs>
+		<rect id="SVGID_1_" y="0" width="45.29" height="40.06"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<path class="st0" d="M25.74,39.5V4c0-1.93,1.57-3.5,3.5-3.5h14.05c0.83,0,1.5,0.67,1.5,1.5v37.5H25.74z"/>
+	<path class="st1" d="M43.29,1c0.55,0,1,0.45,1,1v37H26.24V4c0-1.65,1.34-3,3-3H43.29 M43.29,0H29.24c-2.21,0-4,1.79-4,4v36h20.05V2
+		C45.29,0.9,44.39,0,43.29,0"/>
+	<rect x="29.33" y="3.84" class="st2" width="2" height="33.8"/>
+	<rect x="32.55" y="3.84" class="st2" width="2" height="33.8"/>
+	<rect x="35.89" y="3.84" class="st2" width="2" height="33.8"/>
+	<rect x="39.14" y="3.84" class="st2" width="2" height="33.8"/>
+	<polygon class="st0" points="2.46,26.8 29.99,31.09 29.99,39.5 2.46,39.5 	"/>
+	<polyline class="st0" points="32.06,32.29 11.64,20.44 0.5,28.15 	"/>
+	<polyline class="st3" points="32.06,32.29 11.64,20.44 0.5,28.15 	"/>
+	<polygon class="st2" points="11.41,29.61 9.2,29.61 9.2,24.88 11.41,23.5 	"/>
+	<polygon class="st2" points="15.57,29.61 17.78,29.61 17.78,26.56 15.57,25.17 	"/>
+	<polygon class="st2" points="12.44,29.61 14.65,29.61 14.65,24.88 12.44,23.5 	"/>
+	<rect x="9.2" y="32.22" class="st2" width="4.87" height="4.89"/>
+	<rect x="18.03" y="32.22" class="st2" width="4.87" height="4.89"/>
+	<path class="st4" d="M8.96,19.84l-4.5-4.19c-0.41-0.39-0.44-1.04-0.06-1.45l7.35-8c0.18-0.2,0.44-0.32,0.71-0.33l3.31-0.13
+		c1.13-0.05,2.08,0.84,2.12,1.97l0.13,3.33c0.01,0.27-0.09,0.54-0.27,0.74l-7.35,8C10.02,20.2,9.38,20.22,8.96,19.84"/>
+	<path class="st0" d="M16.72,8.36c-0.38,0.42-1.03,0.44-1.45,0.06c-0.41-0.39-0.44-1.04-0.06-1.45c0.38-0.42,1.03-0.44,1.44-0.06
+		C17.08,7.29,17.11,7.94,16.72,8.36"/>
+	<path class="st0" d="M16.67,6.9l3.21-3.37c0,0,2.48-2.79,6.83-2.3"/>
+	<path class="st3" d="M16.67,6.9l3.21-3.37c0,0,2.48-2.79,6.83-2.3"/>
+	<polyline class="st5" points="2.46,26.8 2.46,39.57 29.99,39.57 29.99,31.09 	"/>
+</g>
+</svg>

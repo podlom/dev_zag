@@ -1,0 +1,15 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'run', 'watch' ]
+2 info using npm@6.14.10
+3 info using node@v12.20.1
+4 verbose run-script [ 'prewatch', 'watch', 'postwatch' ]
+5 info lifecycle @~prewatch: @
+6 info lifecycle @~watch: @
+7 verbose lifecycle @~watch: unsafe-perm in lifecycle true
+8 verbose lifecycle @~watch: PATH: /usr/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/var/www/zagorodnaz/zagorodna.com/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/var/www/zagorodnaz//.composer/vendor/bin:/var/www/zagorodnaz//.node_modules/.bin/
+9 verbose lifecycle @~watch: CWD: /var/www/zagorodnaz/zagorodna.com
+10 silly lifecycle @~watch: Args: [ '-c', 'npm run development -- --watch' ]
+11 timing npm Completed in 84190ms
+12 error cb() never called!
+13 error This is an error with npm itself. Please report this error at:
+14 error <https://npm.community>

@@ -1,0 +1,13 @@
+app/Console/Commands/SendTelegramNews.php
+app/Console/Commands/SendTelegramProducts.php
+app/Console/Commands/SendTelegramPromotions.php
+app/Notifications/TelegramArticleNotification.php
+app/Notifications/TelegramProductNotification.php
+app/Notifications/TelegramPromotionNotification.php
+bin/_rotate_laravel_log.log
+bin/_rotate_laravel_log.sh
+resources/views/catalog/index.blade.php
+routes/web.php
+resources/lang/ru/main.php
+resources/lang/uk/main.php
+resources/views/layouts/app.blade.php

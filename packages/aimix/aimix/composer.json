@@ -1,0 +1,52 @@
+{
+  "name": "aimix/aimix",
+  "description": "A aimix",
+  "license": "MIT",
+  "keywords": [
+    "aimix"
+  ],
+  "type": "library",
+  "authors": [
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "illuminate/support": "^7.3",
+    "webpatser/laravel-countries": ">=1.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^4.0",
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aimix\\aimix\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Aimix\\aimix\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "phpunit": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "branch-alias": {
+          "dev-master": "1.0"
+      },
+      "providers": [
+        "Aimix\\aimix\\ServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}

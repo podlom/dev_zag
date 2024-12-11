@@ -1,0 +1,3 @@
+<?php if(!$entry->original && $entry->translations->count() < count(\Backpack\LangFileManager\app\Models\Language::getActiveLanguagesNames()) - 1 && $crud->hasAccess('translate')): ?>
+<a href="<?php echo e(url($crud->route.'/'.$entry->getKey().'/translate')); ?>" class="btn btn-sm btn-link"><i class="fa fa-th-list" ></i> Создать перевод </a>
+<?php endif; ?><?php /**PATH /var/www/zagorodnaz/dev.zagorodna.com/dev_app/resources/views/vendor/backpack/crud/buttons/translate.blade.php ENDPATH**/ ?>

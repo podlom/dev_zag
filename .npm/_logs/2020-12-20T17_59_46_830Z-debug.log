@@ -1,0 +1,44 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'development',
+1 verbose cli   '--',
+1 verbose cli   '--watch'
+1 verbose cli ]
+2 info using npm@6.14.8
+3 info using node@v12.20.0
+4 verbose run-script [ 'predevelopment', 'development', 'postdevelopment' ]
+5 info lifecycle @~predevelopment: @
+6 info lifecycle @~development: @
+7 verbose lifecycle @~development: unsafe-perm in lifecycle true
+8 verbose lifecycle @~development: PATH: /usr/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/var/www/zagorodnaz/zagorodna.com/node_modules/.bin:/usr/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/var/www/zagorodnaz/zagorodna.com/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/var/www/zagorodnaz//.composer/vendor/bin:/var/www/zagorodnaz//.node_modules/.bin/
+9 verbose lifecycle @~development: CWD: /var/www/zagorodnaz/zagorodna.com
+10 silly lifecycle @~development: Args: [
+10 silly lifecycle   '-c',
+10 silly lifecycle   'cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js "--watch"'
+10 silly lifecycle ]
+11 silly lifecycle @~development: Returned: code: 1  signal: null
+12 info lifecycle @~development: Failed to exec development script
+13 verbose stack Error: @ development: `cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js "--watch"`
+13 verbose stack Exit status 1
+13 verbose stack     at EventEmitter.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-lifecycle/index.js:332:16)
+13 verbose stack     at EventEmitter.emit (events.js:314:20)
+13 verbose stack     at ChildProcess.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-lifecycle/lib/spawn.js:55:14)
+13 verbose stack     at ChildProcess.emit (events.js:314:20)
+13 verbose stack     at maybeClose (internal/child_process.js:1022:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:287:5)
+14 verbose pkgid @
+15 verbose cwd /var/www/zagorodnaz/zagorodna.com
+16 verbose Linux 2.6.32-openvz-042stab145.3-amd64
+17 verbose argv "/usr/bin/node" "/usr/bin/npm" "run" "development" "--" "--watch"
+18 verbose node v12.20.0
+19 verbose npm  v6.14.8
+20 error code ELIFECYCLE
+21 error errno 1
+22 error @ development: `cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js "--watch"`
+22 error Exit status 1
+23 error Failed at the @ development script.
+23 error This is probably not a problem with npm. There is likely additional logging output above.
+24 verbose exit [ 1, true ]

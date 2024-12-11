@@ -1,0 +1,22 @@
+{
+    "name": "kirill-dan/uploadimage",
+    "description": "Upload images to the content type folder.",
+    "homepage": "https://github.com/kirill-dan/uploadimage",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kirill Danilevsky",
+            "email": "k.danilevsky@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "spatie/laravel-glide": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dan\\UploadImage\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

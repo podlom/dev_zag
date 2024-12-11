@@ -1,0 +1,49 @@
+{
+  "name": "aimix/shop",
+  "description": "A shop",
+  "license": "MIT",
+  "keywords": [
+    "shop"
+  ],
+  "type": "library",
+  "authors": [
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "illuminate/support": "^7.3",
+    "aimix/aimix": "dev-master"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^4.0",
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aimix\\Shop\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Aimix\\Shop\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "phpunit": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Aimix\\Shop\\ServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}

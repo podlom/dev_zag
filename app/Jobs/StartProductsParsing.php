@@ -1,0 +1,341 @@
+<?php
+
+namespace App\Jobs;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+
+use Symfony\Component\DomCrawler\Crawler;
+use ParseProductPage;
+use ParseNewbuildPage;
+use App\ParsingLog;
+
+class StartProductsParsing implements ShouldQueue
+{
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    public $timeout = 36000;
+    public $city_products = [];
+
+    /**
+     * Create a new job instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        $site = 'https://lun.ua';
+
+        // create new log
+        (new ParsingLog)->save();
+
+        // START COTTAGES
+        // there is no overall catalog with all products so we go to one catalog and find all other catalog links
+        $link = 'https://lun.ua/ru/%D0%BA%D0%BE%D1%82%D1%82%D0%B5%D0%B4%D0%B6%D0%B8/%D0%BA%D0%B8%D0%B5%D0%B2';
+        // List of catalogs by region/city
+
+        $catalogs = $this->getCatalogsLinks($link);
+
+        // Полтава
+        $catalogs[] = '/ru/%D0%BA%D0%BE%D1%82%D1%82%D0%B5%D0%B4%D0%B6%D0%B8/%D0%BF%D0%BE%D0%BB%D1%82%D0%B0%D0%B2%D0%B0';
+
+        // Херсон
+        $catalogs[] = '/ru/%D0%BA%D0%BE%D1%82%D1%82%D0%B5%D0%B4%D0%B6%D0%B8/%D1%85%D0%B5%D1%80%D1%81%D0%BE%D0%BD';
+
+        // Чернигов
+        $catalogs[] = '/ru/%D0%BA%D0%BE%D1%82%D1%82%D0%B5%D0%B4%D0%B6%D0%B8/%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2';
+
+        // all product links will be here
+        $products = [];
+
+        foreach($catalogs as $path) {
+            // Array of product links for current catalog (all pages if pagination exists)
+            $catalog_products = $this->getCatalogProducts($path . '?', $site);
+
+            $products = array_merge($products, $catalog_products);
+        }
+
+        $products = array_unique($products);
+
+        $delay = 0;
+        foreach($products as  $key => $path) {
+                $delay += random_int(4, 28);
+                \App\Jobs\ParseProductPage::dispatch($site, $path)->onQueue('parsing')->delay(now()->addSeconds($delay));
+        }
+        // END COTTAGES
+
+        // START NEWBUILDS
+
+        $param = "?realty_type=flat";
+
+        // there is no overall catalog with all products so we go to one catalog and find all other catalog links
+        $link = "https://lun.ua/ru/%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8-%D0%BF%D0%BE%D0%BB%D1%82%D0%B0%D0%B2%D1%8B$param";
+        // List of catalogs by region/city
+
+        $catalogs = $this->getCatalogsLinks($link);
+
+        // Киевская область
+        $products = $this->getCatalogProducts("/ru/%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8-%D0%BA%D0%B8%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B9-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8$param", $site);
+
+        foreach($catalogs as $path) {
+            if($path === '/ru/%D0%B2%D1%81%D0%B5-%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8-%D0%BA%D0%B8%D0%B5%D0%B2%D0%B0' || $path = '/ru/%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8-%D0%BA%D0%B8%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B9-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8')
+                continue;
+            // Array of product links for current catalog (all pages if pagination exists)
+                $catalog_products = $this->getNewbuildsCatalogProducts($path . $param, $site);
+
+            $products = array_merge($products, $catalog_products);
+        }
+
+
+        $products = array_diff($products, $this->city_products);
+        $products = array_unique($products);
+
+        $delay = 0;
+/*
+        foreach($products as  $key => $path) {
+                $delay += random_int(4, 28);
+                \App\Jobs\ParseNewbuildPage::dispatch($site, $path)->onQueue('parsing')->delay(now()->addSeconds($delay));
+        }
+*/
+
+        // END NEWBUILDS
+    }
+
+        // /**
+    //  * Get list of catalogs by region/city
+    //  *
+    //  * @param  string  $link
+    //  * @return array
+    // */
+    private function getCatalogsLinks($link)
+    {
+        // Get html remote text.
+        $html = file_get_contents($link);
+
+        // Create new instance for parser.
+        $crawler = new Crawler(null, $link);
+        $crawler->addHtmlContent($html, 'UTF-8');
+
+        // List of catalogs by region/city
+        $catalogs = $crawler->filter('.GeoControlGlobal-suggestion div:not(.GeoControlGlobal-cities) a')->extract(['href']);
+
+        return $catalogs;
+    }
+
+    // /**
+    //  * Get all products from catalog page
+    //  *
+    //  * @param  string  $path
+    //  * @param  string  $site
+    //  * @return array
+    // */
+    private function getCatalogProducts($path, $site)
+    {
+        $link = $site . $path;
+
+        info($link);
+        if($this->get_http_response_code($link) != "200"){
+            return [];
+        }else{
+            $html = file_get_contents($link);
+        }
+
+        // Create new instance for parser.
+        $crawler = new Crawler(null, $link);
+        $crawler->addHtmlContent($html, 'UTF-8');
+
+        $subtitle = $crawler->filter('.UISubtitle-content')->text();
+        preg_match('!\d+!', $subtitle, $matches);
+
+        if(isset($matches[0])) {
+            $number = $matches[0];
+        }
+        else {
+            $number = 1;
+        }
+
+
+        $pages = ceil($number / 24) + 1;
+
+
+        // get first page products
+        $products = $crawler->filter('.Card');
+
+
+        info('Количество найденных продуктов - '. count($products));
+        if(!count($products))
+            $products = $crawler->filter('a.Card-link');
+
+        if(!count($products))
+            return [];
+
+        if(!count($products))
+            return [];
+
+        $products = $products->extract(['href']);
+
+        // if more than 1 page -> get other pages products
+        info('Количество страниц - '. $pages);
+        if($pages) {
+
+            for($i = 2; $i <= $pages; $i++) {
+                $paged_link = $link . '&page=' . $i;
+                // Get html remote text.
+                $html = file_get_contents($paged_link);
+
+                // Create new instance for parser.
+                $crawler = new Crawler(null, $paged_link);
+                $crawler->addHtmlContent($html, 'UTF-8');
+
+                $new_products = $crawler->filter('.double_line_label');
+
+                info(json_encode($new_products). 'количество -'. count($new_products));
+
+                info('Количество новых продуктов - '. count($new_products));
+
+                if(!count($new_products))
+                    $new_products = $crawler->filter('a.Card-link');
+
+
+                if(!count($new_products))
+                    continue;
+
+                $products = array_merge($products, $new_products->extract(['href']));
+
+
+            }
+        }
+
+        return $products;
+    }
+
+        // /**
+    //  * Get all products from catalog page
+    //  *
+    //  * @param  string  $path
+    //  * @param  string  $site
+    //  * @return array
+    // */
+    private function getNewbuildsCatalogProducts($path, $site)
+    {
+        $link = $site . $path;
+
+        if($this->get_http_response_code($link) != "200") {
+            return [];
+        } else {
+            $html = file_get_contents($link);
+        }
+
+        \Storage::disk('common')->put('parsing_page_1_file_contents.json', $html);
+
+        // Create new instance for parser.
+        $crawler = new Crawler(null, $link);
+        $crawler->addHtmlContent($html, 'UTF-8');
+
+        $subtitle = $crawler->filter('.UISubtitle-content')->text();
+        preg_match('!\d+!', $subtitle, $matches);
+        $pages = ceil($matches[0] / 24) + 1;
+
+        // get first page products
+        $products = $crawler->filter('.card .card-media');
+
+        if(!count($products))
+            $products = $crawler->filter('a.Card');
+
+        if(!count($products))
+            return [];
+
+        $products = $products->extract(['href']);
+
+        // if more than 1 page -> get other pages products
+        if($pages) {
+            for($i = 2; $i <= $pages; $i++) {
+                $paged_link = $link . '&page=' . $i;
+                // Get html remote text.
+                $html = file_get_contents($paged_link);
+
+                // Create new instance for parser.
+                $crawler = new Crawler(null, $paged_link);
+                $crawler->addHtmlContent($html, 'UTF-8');
+
+                $new_products = $crawler->filter('.card .card-media');
+
+                if(!count($new_products))
+                    $new_products = $crawler->filter('a.Card');
+
+                if(!count($new_products))
+                    continue;
+
+                $products = array_merge($products, $new_products->extract(['href']));
+            }
+        }
+
+        $link = $link . '&radius=0';
+        $html = file_get_contents($link);
+        // Create new instance for parser.
+        $crawler = new Crawler(null, $link);
+        $crawler->addHtmlContent($html, 'UTF-8');
+        \Storage::disk('common')->put('parsing_city_page_1_file_contents.json', $html);
+
+        $subtitle = $crawler->filter('.UISubtitle-content')->text();
+        preg_match('!\d+!', $subtitle, $matches);
+        $pages = ceil($matches[0] / 24) + 1;
+
+        // get first page products
+        $city_products = $crawler->filter('.card .card-media');
+
+
+        if(!count($city_products))
+            $city_products = $crawler->filter('a.Card');
+
+        if(!count($city_products))
+            return $products;
+
+        $city_products = $city_products->extract(['href']);
+
+        // if more than 1 page -> get other pages products
+        if($pages) {
+            for($i = 2; $i <= $pages; $i++) {
+                $paged_link = $link . '&page=' . $i;
+                // Get html remote text.
+                $html = file_get_contents($paged_link);
+
+                // Create new instance for parser.
+                $crawler = new Crawler(null, $paged_link);
+                $crawler->addHtmlContent($html, 'UTF-8');
+
+                $new_products = $crawler->filter('.card .card-media');
+
+                if(!count($new_products))
+                    $new_products = $crawler->filter('a.Card');
+
+                if(!count($new_products))
+                    continue;
+
+                $city_products = array_merge($city_products, $new_products->extract(['href']));
+            }
+        }
+
+        $this->city_products = array_merge($this->city_products, $city_products);
+
+        return $products;
+    }
+
+    private function get_http_response_code($url) {
+        $headers = get_headers($url);
+        return substr($headers[0], 9, 3);
+    }
+}

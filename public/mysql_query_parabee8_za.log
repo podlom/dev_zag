@@ -1,0 +1,208 @@
+
+# A software update is available:
+#   * The current version for Percona::Toolkit is 3.0.5
+
+Reading from STDIN ...
+
+# 37.9s user time, 4.1s system time, 28.57M rss, 110.75M vsz
+# Current date: Thu Aug  6 02:03:31 2020
+# Hostname: arthas.beget.ru
+# Files: STDIN
+# Overall: 8 total, 6 unique, 0.00 QPS, 0.00x concurrency ________________
+# Time range: 2020-08-05T23:03:09 to 2020-08-06T01:31:24
+# Attribute          total     min     max     avg     95%  stddev  median
+# ============     ======= ======= ======= ======= ======= ======= =======
+# Exec time          909ms   100ms   205ms   114ms   198ms    32ms   100ms
+# Lock time              0       0       0       0       0       0       0
+# Query size         2.04k     108     337  260.88  329.68   86.76  321.83
+# id               622.15M  77.66M  78.07M  77.77M  75.78M       0  75.78M
+
+# Profile
+# Rank Query ID           Response time Calls R/Call V/M   Item
+# ==== ================== ============= ===== ====== ===== ===============
+#    1 0x9CE4E3AEB0D6E550  0.4057 44.6%     3 0.1352  0.02 SELECT regions products
+#    2 0x5EB2637452406318  0.1011 11.1%     1 0.1011  0.00 SELECT regions products
+#    3 0x0A5F5CC14E3642B6  0.1005 11.1%     1 0.1005  0.00 SELECT brands brand_categories
+#    4 0x42B651DB0133E563  0.1005 11.1%     1 0.1005  0.00 SELECT reviews
+#    5 0xE8500AC390246F70  0.1005 11.1%     1 0.1005  0.00 SELECT products
+#    6 0x2651CE89E1D947BE  0.1004 11.1%     1 0.1004  0.00 SELECT products
+
+# Query 1: 0.00 QPS, 0.00x concurrency, ID 0x9CE4E3AEB0D6E550 at byte 0 __
+# Scores: V/M = 0.02
+# Time range: 2020-08-05T23:03:09 to 2020-08-05T23:39:50
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         37       3
+# Exec time     44   406ms   100ms   205ms   135ms   198ms    46ms   100ms
+# Lock time      0       0       0       0       0       0       0       0
+# Query size    47     990     326     332     330  329.68       3  329.68
+# id            37 233.15M  77.66M  77.78M  77.72M  75.78M       0  75.78M
+# String:
+# Databases    parabee8_za
+# Hosts        localhost
+# Users        parabee8_za
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms  ################################################################
+#    1s
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `parabee8_za` LIKE 'regions'\G
+#    SHOW CREATE TABLE `parabee8_za`.`regions`\G
+#    SHOW TABLE STATUS FROM `parabee8_za` LIKE 'products'\G
+#    SHOW CREATE TABLE `parabee8_za`.`products`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+select `name`, `slug` from `regions` where `language_abbr` = 'ru' and `is_active` = 1 and exists (select * from `products` where `regions`.`region_id` = json_unquote(json_extract(`products`.`address`, '$."region"')) and `products`.`language_abbr` = 'ru' and json_unquote(json_extract(`products`.`address`, '$."region"')) not in (1))\G
+
+# Query 2: 0 QPS, 0x concurrency, ID 0x5EB2637452406318 at byte 0 ________
+# Scores: V/M = 0.00
+# Time range: all events occurred at 2020-08-05T23:39:50
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         12       1
+# Exec time     11   101ms   101ms   101ms   101ms   101ms       0   101ms
+# Lock time      0       0       0       0       0       0       0       0
+# Query size    16     337     337     337     337     337       0     337
+# id            12  77.78M  77.78M  77.78M  77.78M  77.78M       0  77.78M
+# String:
+# Databases    parabee8_za
+# Hosts        localhost
+# Users        parabee8_za
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms  ################################################################
+#    1s
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `parabee8_za` LIKE 'regions'\G
+#    SHOW CREATE TABLE `parabee8_za`.`regions`\G
+#    SHOW TABLE STATUS FROM `parabee8_za` LIKE 'products'\G
+#    SHOW CREATE TABLE `parabee8_za`.`products`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+select `name`, `region_id` from `regions` where `language_abbr` = 'ru' and `is_active` = 1 and exists (select * from `products` where `regions`.`region_id` = json_unquote(json_extract(`products`.`address`, '$."region"')) and `products`.`language_abbr` = 'ru' and json_unquote(json_extract(`products`.`address`, '$."region"')) not in (1))\G
+
+# Query 3: 0 QPS, 0x concurrency, ID 0x0A5F5CC14E3642B6 at byte 0 ________
+# Scores: V/M = 0.00
+# Time range: all events occurred at 2020-08-05T23:39:50
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         12       1
+# Exec time     11   101ms   101ms   101ms   101ms   101ms       0   101ms
+# Lock time      0       0       0       0       0       0       0       0
+# Query size    14     295     295     295     295     295       0     295
+# id            12  77.78M  77.78M  77.78M  77.78M  77.78M       0  77.78M
+# String:
+# Databases    parabee8_za
+# Hosts        localhost
+# Users        parabee8_za
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms  ################################################################
+#    1s
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `parabee8_za` LIKE 'brands'\G
+#    SHOW CREATE TABLE `parabee8_za`.`brands`\G
+#    SHOW TABLE STATUS FROM `parabee8_za` LIKE 'brand_categories'\G
+#    SHOW CREATE TABLE `parabee8_za`.`brand_categories`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+select count(*) as aggregate from `brands` where `language_abbr` = 'ru' and json_unquote(json_extract(`brands`.`address`, '$."region"')) not in (1) and exists (select * from `brand_categories` where `brands`.`category_id` = `brand_categories`.`id` and `is_active` = 1 and `language_abbr` = 'ru')\G
+
+# Query 4: 0 QPS, 0x concurrency, ID 0x42B651DB0133E563 at byte 0 ________
+# Scores: V/M = 0.00
+# Time range: all events occurred at 2020-08-05T23:13:54
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         12       1
+# Exec time     11   100ms   100ms   100ms   100ms   100ms       0   100ms
+# Lock time      0       0       0       0       0       0       0       0
+# Query size     6     136     136     136     136     136       0     136
+# id            12  77.70M  77.70M  77.70M  77.70M  77.70M       0  77.70M
+# String:
+# Databases    parabee8_za
+# Hosts        localhost
+# Users        parabee8_za
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms  ################################################################
+#    1s
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `parabee8_za` LIKE 'reviews'\G
+#    SHOW CREATE TABLE `parabee8_za`.`reviews`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+select * from `reviews` where `type` = 'zagorodna' and `is_moderated` = 1 and `language_abbr` = 'ru' order by `created_at` desc limit 12\G
+
+# Query 5: 0 QPS, 0x concurrency, ID 0xE8500AC390246F70 at byte 0 ________
+# Scores: V/M = 0.00
+# Time range: all events occurred at 2020-08-05T23:03:09
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         12       1
+# Exec time     11   100ms   100ms   100ms   100ms   100ms       0   100ms
+# Lock time      0       0       0       0       0       0       0       0
+# Query size    10     221     221     221     221     221       0     221
+# id            12  77.66M  77.66M  77.66M  77.66M  77.66M       0  77.66M
+# String:
+# Databases    parabee8_za
+# Hosts        localhost
+# Users        parabee8_za
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms  ################################################################
+#    1s
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `parabee8_za` LIKE 'products'\G
+#    SHOW CREATE TABLE `parabee8_za`.`products`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+select count(*) as aggregate from `products` where `products`.`is_active` = 1 and `category_id` in (2, 7) and `products`.`language_abbr` = 'ru' and json_unquote(json_extract(`products`.`address`, '$."region"')) not in (1)\G
+
+# Query 6: 0 QPS, 0x concurrency, ID 0x2651CE89E1D947BE at byte 0 ________
+# Scores: V/M = 0.00
+# Time range: all events occurred at 2020-08-06T01:31:24
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         12       1
+# Exec time     11   100ms   100ms   100ms   100ms   100ms       0   100ms
+# Lock time      0       0       0       0       0       0       0       0
+# Query size     5     108     108     108     108     108       0     108
+# id            12  78.07M  78.07M  78.07M  78.07M  78.07M       0  78.07M
+# String:
+# Databases    parabee8_za
+# Hosts        localhost
+# Users        parabee8_za
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms  ################################################################
+#    1s
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `parabee8_za` LIKE 'products'\G
+#    SHOW CREATE TABLE `parabee8_za`.`products`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+select * from `products` where `slug` = 'mysql_query_parabee8_za.log' and `products`.`is_active` = 1 limit 1\G

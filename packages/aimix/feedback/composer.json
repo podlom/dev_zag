@@ -1,0 +1,52 @@
+{
+  "name": "aimix/feedback",
+  "description": "A feedback",
+  "license": "MIT",
+  "keywords": [
+    "feedback"
+  ],
+  "type": "library",
+  "authors": [
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "illuminate/support": "^7.3",
+    "aimix/aimix": "dev-master"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^4.0",
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aimix\\Feedback\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Aimix\\Feedback\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "phpunit": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Aimix\\Feedback\\ServiceProvider"
+      ],
+	  "aliases": {
+	  	"Feedback": "Aimix\\Feedback\\Facades\\Feedback"
+	   }
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
