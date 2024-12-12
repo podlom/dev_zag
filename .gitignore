@@ -16,7 +16,6 @@ public_html/storage
 public_html/hot
 
 storage/*.key
-.env
 Homestead.yaml
 Homestead.json
 /.vagrant
@@ -39,3 +38,7 @@ storage/logs/
 
 # exclude large json files
 public/*.json
+
+# remove files from index
+.env
+.bash_history
